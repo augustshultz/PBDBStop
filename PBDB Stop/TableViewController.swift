@@ -5,25 +5,9 @@
 
 import UIKit
 
-enum State {
-  case loading
-  case error
-  case empty
-  case populated([Prediction])
+class TableViewController: UITableViewController {
   
-  var predictions: [Prediction] {
-    switch self {
-    case .populated(let predictions):
-      return predictions
-    default:
-      return []
-    }
-  }
-}
-
-class ViewController: UITableViewController {
-  
-  var state: State = .loading {
+  var state: State<Prediction> = .loading {
     didSet {
       tableView.reloadData()
     }
@@ -38,33 +22,19 @@ class ViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return state.predictions.count
+    return state.rowObjects.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let prediction = state.predictions[indexPath.row]
+    let prediction = state.rowObjects[indexPath.row]
     let cell = tableView.dequeueReusableCell(withIdentifier: "PredictionTableViewCell", for: indexPath)
     cell.textLabel?.text = prediction.name
     cell.detailTextLabel?.text = format(secondsForDisplay: prediction.seconds)
     return cell
   }
-  
-  func format(secondsForDisplay seconds: Int) -> String? {
-    let minutes = seconds / 60
-    let secondsRemaining = seconds % 60
-    var format: String = ""
-    if minutes != 0 {
-      format = "\(minutes) m "
-      
-    }
-    if secondsRemaining != 0 {
-      format = "\(format)\(secondsRemaining) m"
-    }
-    return format
-  }
 }
 
-extension ViewController: NetworkControllerDelegate {
+extension TableViewController: NetworkControllerDelegate {
   func predictions(_ predictions: [Prediction]) {
     state = .populated(predictions)
   }
