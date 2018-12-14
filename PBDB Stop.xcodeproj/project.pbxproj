@@ -13,6 +13,8 @@
 		9E2951A821C32F3100081184 /* PBDB_Stop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E2951A621C32F3100081184 /* PBDB_Stop.xcdatamodeld */; };
 		9E2951AA21C32F3400081184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2951A921C32F3400081184 /* Assets.xcassets */; };
 		9E2951AD21C32F3400081184 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2951AB21C32F3400081184 /* LaunchScreen.storyboard */; };
+		9E2951B521C32FD500081184 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2951B421C32FD500081184 /* NetworkController.swift */; };
+		9E2951B721C330A000081184 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2951B621C330A000081184 /* Prediction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		9E2951A921C32F3400081184 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E2951AC21C32F3400081184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E2951AE21C32F3400081184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E2951B421C32FD500081184 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		9E2951B621C330A000081184 /* Prediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				9E2951AB21C32F3400081184 /* LaunchScreen.storyboard */,
 				9E2951AE21C32F3400081184 /* Info.plist */,
 				9E2951A621C32F3100081184 /* PBDB_Stop.xcdatamodeld */,
+				9E2951B421C32FD500081184 /* NetworkController.swift */,
+				9E2951B621C330A000081184 /* Prediction.swift */,
 			);
 			path = "PBDB Stop";
 			sourceTree = "<group>";
@@ -138,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E2951B521C32FD500081184 /* NetworkController.swift in Sources */,
 				9E2951A821C32F3100081184 /* PBDB_Stop.xcdatamodeld in Sources */,
 				9E2951A221C32F3100081184 /* ViewController.swift in Sources */,
+				9E2951B721C330A000081184 /* Prediction.swift in Sources */,
 				9E2951A021C32F3100081184 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
