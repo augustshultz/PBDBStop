@@ -45,8 +45,22 @@ class ViewController: UITableViewController {
     let prediction = state.predictions[indexPath.row]
     let cell = tableView.dequeueReusableCell(withIdentifier: "PredictionTableViewCell", for: indexPath)
     cell.textLabel?.text = prediction.name
-    cell.detailTextLabel?.text = "\(prediction.seconds)"
+    cell.detailTextLabel?.text = format(secondsForDisplay: prediction.seconds)
     return cell
+  }
+  
+  func format(secondsForDisplay seconds: Int) -> String? {
+    let minutes = seconds / 60
+    let secondsRemaining = seconds % 60
+    var format: String = ""
+    if minutes != 0 {
+      format = "\(minutes) m "
+      
+    }
+    if secondsRemaining != 0 {
+      format = "\(format)\(secondsRemaining) m"
+    }
+    return format
   }
 }
 
