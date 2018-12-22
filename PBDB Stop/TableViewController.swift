@@ -32,6 +32,23 @@ class TableViewController: UITableViewController {
     cell.detailTextLabel?.text = format(secondsForDisplay: prediction.seconds)
     return cell
   }
+  
+  func format(secondsForDisplay seconds: Int?) -> String? {
+    guard let seconds = seconds else {
+      return nil
+    }
+    let minutes = seconds / 60
+    let secondsRemaining = seconds % 60
+    var format: String = ""
+    if minutes != 0 {
+      format = "\(minutes) m "
+      
+    }
+    if secondsRemaining != 0 {
+      format = "\(format)\(secondsRemaining) s"
+    }
+    return format
+  }
 }
 
 extension TableViewController: NetworkControllerDelegate {

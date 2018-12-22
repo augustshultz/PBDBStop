@@ -16,7 +16,6 @@
 		9E2951B521C32FD500081184 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2951B421C32FD500081184 /* NetworkController.swift */; };
 		9E2951B721C330A000081184 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2951B621C330A000081184 /* Prediction.swift */; };
 		9E2951B921C3E89F00081184 /* TableViewControllerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2951B821C3E89F00081184 /* TableViewControllerState.swift */; };
-		9E2951BB21C3E9FB00081184 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2951BA21C3E9FB00081184 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		9E2951B421C32FD500081184 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		9E2951B621C330A000081184 /* Prediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
 		9E2951B821C3E89F00081184 /* TableViewControllerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerState.swift; sourceTree = "<group>"; };
-		9E2951BA21C3E9FB00081184 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +72,6 @@
 				9E2951B421C32FD500081184 /* NetworkController.swift */,
 				9E2951B621C330A000081184 /* Prediction.swift */,
 				9E2951B821C3E89F00081184 /* TableViewControllerState.swift */,
-				9E2951BA21C3E9FB00081184 /* TableViewCell.swift */,
 			);
 			path = "PBDB Stop";
 			sourceTree = "<group>";
@@ -154,7 +151,6 @@
 				9E2951B921C3E89F00081184 /* TableViewControllerState.swift in Sources */,
 				9E2951A821C32F3100081184 /* PBDB_Stop.xcdatamodeld in Sources */,
 				9E2951A221C32F3100081184 /* TableViewController.swift in Sources */,
-				9E2951BB21C3E9FB00081184 /* TableViewCell.swift in Sources */,
 				9E2951B721C330A000081184 /* Prediction.swift in Sources */,
 				9E2951A021C32F3100081184 /* AppDelegate.swift in Sources */,
 			);
