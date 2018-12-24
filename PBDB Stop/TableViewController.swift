@@ -22,7 +22,6 @@ class TableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.tableFooterView = loadingView
-    activityIndicator?.color = UIColor.darkGray
   }
   
   override func viewWillAppear(_ animated: Bool) {
