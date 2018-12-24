@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -48,9 +49,35 @@
                             <outlet property="delegate" destination="DUY-Pl-jag" id="Qh3-lU-Uj8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="PBDB Stop" id="bqr-yJ-mvh"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="PBDB Stop" id="bqr-yJ-mvh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="OC9-kb-fsu">
+                            <connections>
+                                <action selector="refresh:" destination="DUY-Pl-jag" id="gF7-PA-fCx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Jud-6u-ci5" id="8Vh-yM-7S0"/>
+                        <outlet property="loadingView" destination="cqn-Gg-y57" id="omC-QP-EpU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yt1-In-xzg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="cqn-Gg-y57" userLabel="Loading View">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Jud-6u-ci5">
+                            <rect key="frame" x="101.5" y="45.5" width="37" height="37"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Jud-6u-ci5" firstAttribute="centerX" secondItem="5tl-dA-dVI" secondAttribute="centerX" id="6PG-Ji-Rr9"/>
+                        <constraint firstItem="Jud-6u-ci5" firstAttribute="centerY" secondItem="5tl-dA-dVI" secondAttribute="centerY" id="CuT-EW-baJ"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="5tl-dA-dVI"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="641" y="65"/>
         </scene>

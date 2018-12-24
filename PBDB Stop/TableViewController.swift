@@ -7,13 +7,23 @@ import UIKit
 
 class TableViewController: UITableViewController {
   
+  let networkController = NetworkController()
+  
+  @IBOutlet weak var loadingView: UIView?
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
+  
   var state: State<Prediction> = .loading {
     didSet {
+      setFooterView()
       tableView.reloadData()
     }
   }
-
-  let networkController = NetworkController()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    tableView.tableFooterView = loadingView
+    activityIndicator?.color = UIColor.darkGray
+  }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -23,6 +33,11 @@ class TableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return state.rowObjects.count
+  }
+  
+  @IBAction func refresh(_ sender: UIBarButtonItem) {
+    state = .loading
+    networkController.loadPredictions()
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,6 +63,15 @@ class TableViewController: UITableViewController {
       format = "\(format)\(secondsRemaining) s"
     }
     return format
+  }
+  
+  func setFooterView() {
+    switch state {
+    case .loading:
+      tableView.tableFooterView = loadingView
+    default:
+      tableView.tableFooterView = nil
+    }
   }
 }
 
