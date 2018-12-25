@@ -61,9 +61,27 @@
                     <connections>
                         <outlet property="activityIndicator" destination="Jud-6u-ci5" id="8Vh-yM-7S0"/>
                         <outlet property="loadingView" destination="cqn-Gg-y57" id="omC-QP-EpU"/>
+                        <outlet property="noUpcomingArrivals" destination="Mtu-Qb-pIb" id="caM-t7-nhJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yt1-In-xzg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Mtu-Qb-pIb">
+                    <rect key="frame" x="0.0" y="0.0" width="326" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no upcoming arrivals." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLV-ci-PZ9">
+                            <rect key="frame" x="42.5" y="54" width="241.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="WLV-ci-PZ9" firstAttribute="centerY" secondItem="dsa-p1-4M8" secondAttribute="centerY" id="NoQ-2S-McV"/>
+                        <constraint firstItem="WLV-ci-PZ9" firstAttribute="centerX" secondItem="dsa-p1-4M8" secondAttribute="centerX" id="ici-J5-3tf"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="dsa-p1-4M8"/>
+                </view>
                 <view contentMode="scaleToFill" id="cqn-Gg-y57" userLabel="Loading View">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

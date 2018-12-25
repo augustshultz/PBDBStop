@@ -10,6 +10,7 @@ class TableViewController: UITableViewController {
   let networkController = NetworkController()
   
   @IBOutlet weak var loadingView: UIView?
+  @IBOutlet weak var noUpcomingArrivals: UIView?
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
   
   var state: State<Prediction> = .loading {
@@ -68,6 +69,8 @@ class TableViewController: UITableViewController {
     switch state {
     case .loading:
       tableView.tableFooterView = loadingView
+    case .empty:
+      tableView.tableFooterView = noUpcomingArrivals
     default:
       tableView.tableFooterView = nil
     }
@@ -76,7 +79,11 @@ class TableViewController: UITableViewController {
 
 extension TableViewController: NetworkControllerDelegate {
   func predictions(_ predictions: [Prediction]) {
-    state = .populated(predictions)
+    if predictions.isEmpty {
+      state = .empty
+    } else {
+      state = .populated(predictions)
+    }
   }
   
   func errorFetchingPredictions(error: String) {
