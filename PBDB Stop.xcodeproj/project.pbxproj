@@ -63,17 +63,33 @@
 			isa = PBXGroup;
 			children = (
 				9E29519F21C32F3100081184 /* AppDelegate.swift */,
-				9E2951A121C32F3100081184 /* TableViewController.swift */,
-				9E2951A321C32F3100081184 /* Main.storyboard */,
 				9E2951A921C32F3400081184 /* Assets.xcassets */,
 				9E2951AB21C32F3400081184 /* LaunchScreen.storyboard */,
 				9E2951AE21C32F3400081184 /* Info.plist */,
-				9E2951A621C32F3100081184 /* PBDB_Stop.xcdatamodeld */,
+				9E584BFA21D5193100797548 /* View */,
+				9E584BF921D5191200797548 /* Model */,
 				9E2951B421C32FD500081184 /* NetworkController.swift */,
-				9E2951B621C330A000081184 /* Prediction.swift */,
-				9E2951B821C3E89F00081184 /* TableViewControllerState.swift */,
 			);
 			path = "PBDB Stop";
+			sourceTree = "<group>";
+		};
+		9E584BF921D5191200797548 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E2951A621C32F3100081184 /* PBDB_Stop.xcdatamodeld */,
+				9E2951B621C330A000081184 /* Prediction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9E584BFA21D5193100797548 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E2951A121C32F3100081184 /* TableViewController.swift */,
+				9E2951A321C32F3100081184 /* Main.storyboard */,
+				9E2951B821C3E89F00081184 /* TableViewControllerState.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

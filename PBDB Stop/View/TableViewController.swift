@@ -44,25 +44,8 @@ class TableViewController: UITableViewController {
     let prediction = state.rowObjects[indexPath.row]
     let cell = tableView.dequeueReusableCell(withIdentifier: "PredictionTableViewCell", for: indexPath)
     cell.textLabel?.text = prediction.name
-    cell.detailTextLabel?.text = format(secondsForDisplay: prediction.seconds)
+    cell.detailTextLabel?.text = "\(prediction.minutes) m"
     return cell
-  }
-  
-  func format(secondsForDisplay seconds: Int?) -> String? {
-    guard let seconds = seconds else {
-      return nil
-    }
-    let minutes = seconds / 60
-    let secondsRemaining = seconds % 60
-    var format: String = ""
-    if minutes != 0 {
-      format = "\(minutes) m "
-      
-    }
-    if secondsRemaining != 0 {
-      format = "\(format)\(secondsRemaining) s"
-    }
-    return format
   }
   
   func setFooterView() {
@@ -79,11 +62,7 @@ class TableViewController: UITableViewController {
 
 extension TableViewController: NetworkControllerDelegate {
   func predictions(_ predictions: [Prediction]) {
-    if predictions.isEmpty {
-      state = .empty
-    } else {
-      state = .populated(predictions)
-    }
+    state = predictions.isEmpty ? .empty : .populated(predictions)
   }
   
   func errorFetchingPredictions(error: String) {

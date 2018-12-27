@@ -7,5 +7,5 @@ import Foundation
 
 struct Prediction: Decodable {
   let name: String
-  let seconds: Int
+  let minutes: Int
 }
