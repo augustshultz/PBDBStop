@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Prediction: Decodable {
-  public let name: String
-  public let minutes: Int
+struct Prediction: Decodable {
+  let name: String
+  let minutes: Int
 }

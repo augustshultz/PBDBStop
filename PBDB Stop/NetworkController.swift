@@ -11,7 +11,8 @@ class NetworkController {
   weak var delegate: NetworkControllerDelegate?
   
   func loadPredictions() {
-    let task = session.dataTask(with: url()) { (data, response, error) in
+    guard let url = URL(string: "https://api.bongo.org/predictions/0264") else { return }
+    let task = session.dataTask(with: url) { (data, response, error) in
       if let error = error {
         self.delegate?.errorFetchingPredictions(error: error.localizedDescription)
       }
@@ -29,17 +30,13 @@ class NetworkController {
     task.resume()
   }
   
-  private func url() -> URL {
-    return URL(string: "https://api.bongo.org/predictions/0264")!
-  }
-  
-  func notifyDelegate(ofError error: String) {
+  private func notifyDelegate(ofError error: String) {
     DispatchQueue.main.async {
       self.delegate?.errorFetchingPredictions(error: error)
     }
   }
   
-  func notifyDelegate(ofPredictions predictions: [Prediction]) {
+  private func notifyDelegate(ofPredictions predictions: [Prediction]) {
     DispatchQueue.main.async {
       self.delegate?.predictions(predictions)
     }
