@@ -14,14 +14,14 @@ class NetworkController {
     guard let url = URL(string: "https://api.bongo.org/predictions/0264") else { return }
     let task = session.dataTask(with: url) { (data, response, error) in
       if let error = error {
-        self.delegate?.errorFetchingPredictions(error: error.localizedDescription)
+        self.notifyDelegate(ofError: error.localizedDescription)
       }
       if let data = data {
         do {
           let predictions = try self.decoder.decode([Prediction].self, from: data)
           self.notifyDelegate(ofPredictions: predictions)
-        } catch let e {
-          self.notifyDelegate(ofError: e.localizedDescription)
+        } catch let error as NSError {
+          self.notifyDelegate(ofError: error.localizedDescription)
         }
       } else {
         self.notifyDelegate(ofError: "Invalid response")
