@@ -60,11 +60,31 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Jud-6u-ci5" id="8Vh-yM-7S0"/>
+                        <outlet property="errorLabel" destination="ZYc-mC-mhG" id="Lt7-j3-pks"/>
+                        <outlet property="errorView" destination="B4R-vR-kzf" id="E5C-qE-TfO"/>
                         <outlet property="loadingView" destination="cqn-Gg-y57" id="omC-QP-EpU"/>
                         <outlet property="noUpcomingArrivals" destination="Mtu-Qb-pIb" id="caM-t7-nhJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yt1-In-xzg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="B4R-vR-kzf" userLabel="Error View">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-mC-mhG">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="P4P-7q-iB1" firstAttribute="trailing" secondItem="ZYc-mC-mhG" secondAttribute="trailing" id="EtV-yE-VOf"/>
+                        <constraint firstItem="ZYc-mC-mhG" firstAttribute="leading" secondItem="P4P-7q-iB1" secondAttribute="leading" id="exN-Fy-XCK"/>
+                        <constraint firstItem="ZYc-mC-mhG" firstAttribute="height" secondItem="P4P-7q-iB1" secondAttribute="height" id="rJY-7u-qZm"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="P4P-7q-iB1"/>
+                </view>
                 <view contentMode="scaleToFill" id="Mtu-Qb-pIb">
                     <rect key="frame" x="0.0" y="0.0" width="326" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

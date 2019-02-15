@@ -7,7 +7,7 @@ import Foundation
 
 enum State<T> {
   case loading
-  case error
+  case error(String)
   case empty
   case populated([T])
   

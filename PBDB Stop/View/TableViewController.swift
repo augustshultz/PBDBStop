@@ -12,6 +12,8 @@ class TableViewController: UITableViewController {
   
   @IBOutlet weak var loadingView: UIView?
   @IBOutlet weak var noUpcomingArrivals: UIView?
+  @IBOutlet weak var errorView: UIView?
+  @IBOutlet weak var errorLabel: UILabel?
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
   
   var state: State<Prediction> = .loading {
@@ -30,7 +32,7 @@ class TableViewController: UITableViewController {
     super.viewWillAppear(animated)
     networkController.delegate = self
     guard let stopUrl = stopUrl else {
-      state = .error
+      state = .error("The Stop url could not be created.")
       return
     }
     networkController.loadPredictions(fromUrl: stopUrl)
@@ -43,7 +45,7 @@ class TableViewController: UITableViewController {
   @IBAction func refresh(_ sender: UIBarButtonItem) {
     state = .loading
     guard let stopUrl = stopUrl else {
-      state = .error
+      state = .error("The Stop url could not be created.")
       return
     }
     networkController.loadPredictions(fromUrl: stopUrl)
@@ -63,6 +65,9 @@ class TableViewController: UITableViewController {
       tableView.tableFooterView = loadingView
     case .empty:
       tableView.tableFooterView = noUpcomingArrivals
+    case .error(let errorMessage):
+      errorLabel?.text = errorMessage
+      tableView.tableFooterView = errorView
     default:
       tableView.tableFooterView = nil
     }
@@ -75,6 +80,6 @@ extension TableViewController: NetworkControllerDelegate {
   }
   
   func errorFetchingPredictions(error: String) {
-    state = .error
+    state = .error(error)
   }
 }

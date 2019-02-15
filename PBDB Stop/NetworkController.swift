@@ -14,8 +14,7 @@ class NetworkController {
     let task = session.dataTask(with: url) { (data, response, error) in
       if let error = error {
         self.notifyDelegate(ofError: error.localizedDescription)
-      }
-      if let data = data {
+      } else if let data = data {
         do {
           let predictions = try self.decoder.decode([Prediction].self, from: data)
           self.notifyDelegate(ofPredictions: predictions)
