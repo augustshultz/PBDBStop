@@ -10,8 +10,7 @@ class NetworkController {
   private let decoder = JSONDecoder()
   weak var delegate: NetworkControllerDelegate?
   
-  func loadPredictions() {
-    guard let url = URL(string: "https://api.bongo.org/predictions/0264") else { return }
+  func loadPredictions(fromUrl url: URL) {
     let task = session.dataTask(with: url) { (data, response, error) in
       if let error = error {
         self.notifyDelegate(ofError: error.localizedDescription)

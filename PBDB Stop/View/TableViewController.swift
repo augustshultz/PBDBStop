@@ -8,6 +8,7 @@ import UIKit
 class TableViewController: UITableViewController {
   
   let networkController = NetworkController()
+  let stopUrl = URL(string: "https://api.bongo.org/predictions/0264")
   
   @IBOutlet weak var loadingView: UIView?
   @IBOutlet weak var noUpcomingArrivals: UIView?
@@ -28,7 +29,11 @@ class TableViewController: UITableViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     networkController.delegate = self
-    networkController.loadPredictions()
+    guard let stopUrl = stopUrl else {
+      state = .error
+      return
+    }
+    networkController.loadPredictions(fromUrl: stopUrl)
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,7 +42,11 @@ class TableViewController: UITableViewController {
   
   @IBAction func refresh(_ sender: UIBarButtonItem) {
     state = .loading
-    networkController.loadPredictions()
+    guard let stopUrl = stopUrl else {
+      state = .error
+      return
+    }
+    networkController.loadPredictions(fromUrl: stopUrl)
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
