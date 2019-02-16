@@ -71,7 +71,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-mC-mhG">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-mC-mhG">
                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -80,8 +80,9 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="P4P-7q-iB1" firstAttribute="trailing" secondItem="ZYc-mC-mhG" secondAttribute="trailing" id="EtV-yE-VOf"/>
+                        <constraint firstItem="ZYc-mC-mhG" firstAttribute="top" secondItem="P4P-7q-iB1" secondAttribute="top" id="KL6-bm-0Qc"/>
                         <constraint firstItem="ZYc-mC-mhG" firstAttribute="leading" secondItem="P4P-7q-iB1" secondAttribute="leading" id="exN-Fy-XCK"/>
-                        <constraint firstItem="ZYc-mC-mhG" firstAttribute="height" secondItem="P4P-7q-iB1" secondAttribute="height" id="rJY-7u-qZm"/>
+                        <constraint firstItem="P4P-7q-iB1" firstAttribute="bottom" secondItem="ZYc-mC-mhG" secondAttribute="bottom" id="pdY-A4-gs2"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="P4P-7q-iB1"/>
                 </view>
