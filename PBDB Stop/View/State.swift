@@ -8,7 +8,6 @@ import Foundation
 enum State<T> {
   case loading
   case error(String)
-  case empty
   case populated([T])
   
   var rowObjects: [T] {

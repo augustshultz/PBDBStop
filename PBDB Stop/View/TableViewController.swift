@@ -51,7 +51,7 @@ class TableViewController: UITableViewController {
     }
     networkController.loadPredictions(fromUrl: stopUrl) { [unowned self] (predictions, error) in
       if let predictions = predictions {
-        self.state = predictions.isEmpty ? .empty : .populated(predictions)
+        self.state = .populated(predictions)
       } else if let error = error {
         self.state = .error(error)
       }
@@ -70,7 +70,7 @@ class TableViewController: UITableViewController {
     switch state {
     case .loading:
       tableView.tableFooterView = loadingView
-    case .empty:
+    case .populated(let predictions) where predictions.isEmpty:
       tableView.tableFooterView = noUpcomingArrivals
     case .error(let errorMessage):
       errorLabel?.text = errorMessage
