@@ -18,8 +18,10 @@ class TableViewController: UITableViewController {
   
   var state: State<Prediction> = .loading {
     didSet {
-      setFooterView()
-      tableView.reloadData()
+      DispatchQueue.main.async { [unowned self] in
+        self.setFooterView()
+        self.tableView.reloadData()
+      }
     }
   }
   
@@ -30,12 +32,7 @@ class TableViewController: UITableViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    networkController.delegate = self
-    guard let stopUrl = stopUrl else {
-      state = .error("The Stop url could not be created.")
-      return
-    }
-    networkController.loadPredictions(fromUrl: stopUrl)
+    loadPredictions()
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,11 +41,21 @@ class TableViewController: UITableViewController {
   
   @IBAction func refresh(_ sender: UIBarButtonItem) {
     state = .loading
+    loadPredictions()
+  }
+  
+  func loadPredictions() {
     guard let stopUrl = stopUrl else {
       state = .error("The Stop url could not be created.")
       return
     }
-    networkController.loadPredictions(fromUrl: stopUrl)
+    networkController.loadPredictions(fromUrl: stopUrl) { [unowned self] (predictions, error) in
+      if let predictions = predictions {
+        self.state = predictions.isEmpty ? .empty : .populated(predictions)
+      } else if let error = error {
+        self.state = .error(error)
+      }
+    }
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,15 +78,5 @@ class TableViewController: UITableViewController {
     default:
       tableView.tableFooterView = nil
     }
-  }
-}
-
-extension TableViewController: NetworkControllerDelegate {
-  func predictions(_ predictions: [Prediction]) {
-    state = predictions.isEmpty ? .empty : .populated(predictions)
-  }
-  
-  func errorFetchingPredictions(error: String) {
-    state = .error(error)
   }
 }

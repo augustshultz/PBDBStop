@@ -8,40 +8,25 @@ import Foundation
 class NetworkController {
   private let session = URLSession.shared
   private let decoder = JSONDecoder()
-  weak var delegate: NetworkControllerDelegate?
   
-  func loadPredictions(fromUrl url: URL) {
+  typealias RequestCompletion = ([Prediction]?, String?) -> Void
+  
+  func loadPredictions(fromUrl url: URL, _ completion: @escaping RequestCompletion) {
     let task = session.dataTask(with: url) { (data, response, error) in
       if let error = error {
-        self.notifyDelegate(ofError: error.localizedDescription)
+        completion(nil, error.localizedDescription)
       } else if let data = data {
         do {
           let predictions = try self.decoder.decode([Prediction].self, from: data)
-          self.notifyDelegate(ofPredictions: predictions)
+          completion(predictions, nil)
         } catch let error as NSError {
-          self.notifyDelegate(ofError: error.localizedDescription)
+          completion(nil, error.localizedDescription)
         }
       } else {
-        self.notifyDelegate(ofError: "Invalid response")
+        completion(nil, "Invalid response")
       }
     }
     task.resume()
   }
-  
-  private func notifyDelegate(ofError error: String) {
-    DispatchQueue.main.async {
-      self.delegate?.errorFetchingPredictions(error: error)
-    }
-  }
-  
-  private func notifyDelegate(ofPredictions predictions: [Prediction]) {
-    DispatchQueue.main.async {
-      self.delegate?.predictions(predictions)
-    }
-  }
 }
 
-protocol NetworkControllerDelegate: class {
-  func predictions(_ predictions: [Prediction])
-  func errorFetchingPredictions(error: String)
-}
