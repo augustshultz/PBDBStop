@@ -9,21 +9,24 @@ class NetworkController {
   private let session = URLSession.shared
   private let decoder = JSONDecoder()
   
-  typealias RequestCompletion = ([Prediction]?, String?) -> Void
-  
-  func loadPredictions(fromUrl url: URL, _ completion: @escaping RequestCompletion) {
+  func loadPredictions(fromUrl url: URL, _ completion: @escaping (Result<[Prediction], Error>) -> Void) {
     let task = session.dataTask(with: url) { (data, response, error) in
       if let error = error {
-        completion(nil, error.localizedDescription)
-      } else if let data = data {
-        do {
-          let predictions = try self.decoder.decode([Prediction].self, from: data)
-          completion(predictions, nil)
-        } catch let error as NSError {
-          completion(nil, error.localizedDescription)
-        }
-      } else {
-        completion(nil, "Invalid response")
+        completion(.failure(error))
+        return
+      }
+      
+      guard let data = data else {
+        let error = NSError(domain: "Predicitions fetch error", code: 0, userInfo: nil)
+        completion(.failure(error))
+        return
+      }
+      
+      do {
+        let predictions = try self.decoder.decode([Prediction].self, from: data)
+        completion(.success(predictions))
+      } catch let error {
+        completion(.failure(error))
       }
     }
     task.resume()

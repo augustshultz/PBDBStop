@@ -49,11 +49,12 @@ class TableViewController: UITableViewController {
       state = .error("The Stop url could not be created.")
       return
     }
-    networkController.loadPredictions(fromUrl: stopUrl) { [unowned self] (predictions, error) in
-      if let predictions = predictions {
+    networkController.loadPredictions(fromUrl: stopUrl) { [unowned self] (result) in
+      switch result {
+      case .success(let predictions):
         self.state = .populated(predictions)
-      } else if let error = error {
-        self.state = .error(error)
+      case .failure(let error):
+        self.state = .error(error.localizedDescription)
       }
     }
   }
