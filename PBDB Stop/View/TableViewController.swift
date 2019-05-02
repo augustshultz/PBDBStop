@@ -44,6 +44,10 @@ class TableViewController: UITableViewController {
     loadPredictions()
   }
   
+  @IBAction func settings(_ sender: Any) {
+    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+  }
+  
   func loadPredictions() {
     guard let stopUrl = stopUrl else {
       state = .error("The Stop url could not be created.")

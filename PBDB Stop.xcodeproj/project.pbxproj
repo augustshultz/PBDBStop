@@ -15,6 +15,7 @@
 		9E2951AD21C32F3400081184 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2951AB21C32F3400081184 /* LaunchScreen.storyboard */; };
 		9E2951B521C32FD500081184 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2951B421C32FD500081184 /* NetworkController.swift */; };
 		9E2951B921C3E89F00081184 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2951B821C3E89F00081184 /* State.swift */; };
+		9EA5348F227B07E80067A121 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5348E227B07E80067A121 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9E2951AE21C32F3400081184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E2951B421C32FD500081184 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		9E2951B821C3E89F00081184 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		9EA5348E227B07E80067A121 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				9E584BFA21D5193100797548 /* View */,
 				9E2951B421C32FD500081184 /* NetworkController.swift */,
 				9E28650821DACFDB00892418 /* Prediction.swift */,
+				9EA5348E227B07E80067A121 /* Settings.bundle */,
 			);
 			path = "PBDB Stop";
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EA5348F227B07E80067A121 /* Settings.bundle in Resources */,
 				9E2951AD21C32F3400081184 /* LaunchScreen.storyboard in Resources */,
 				9E2951AA21C32F3400081184 /* Assets.xcassets in Resources */,
 				9E2951A521C32F3100081184 /* Main.storyboard in Resources */,
