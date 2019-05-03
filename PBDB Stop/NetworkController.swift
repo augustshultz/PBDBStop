@@ -23,7 +23,7 @@ class NetworkController {
       }
       
       do {
-        let timeInterval = UserDefaults.standard.integer(forKey: "time_interval")
+        let timeInterval = UserDefaults.standard.integer(forKey: "look_ahead")
         let predictions = try self.decoder.decode([Prediction].self, from: data)
         completion(.success(predictions.filter { $0.minutes <= timeInterval }))
       } catch let error {
