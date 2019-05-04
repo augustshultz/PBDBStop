@@ -5,6 +5,10 @@
 
 import Foundation
 
+enum NetworkingError: Error {
+  case noDataError
+}
+
 class NetworkController {
   private let session = URLSession.shared
   private let decoder = JSONDecoder()
@@ -17,8 +21,7 @@ class NetworkController {
       }
       
       guard let data = data else {
-        let error = NSError(domain: "Predicitions fetch error", code: 0, userInfo: nil)
-        completion(.failure(error))
+        completion(.failure(NetworkingError.noDataError))
         return
       }
       
