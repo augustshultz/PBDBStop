@@ -8,7 +8,6 @@ import UIKit
 class TableViewController: UITableViewController {
   
   let networkController = NetworkController()
-  let stopUrl = URL(string: "https://api.bongo.org/predictions/0264")
   
   @IBOutlet weak var loadingView: UIView?
   @IBOutlet weak var noUpcomingArrivals: UIView?
@@ -49,11 +48,7 @@ class TableViewController: UITableViewController {
   }
   
   func loadPredictions() {
-    guard let stopUrl = stopUrl else {
-      state = .error("The Stop url could not be created.")
-      return
-    }
-    networkController.loadPredictions(fromUrl: stopUrl) { [unowned self] (result) in
+    networkController.loadPredictions() { [unowned self] (result) in
       switch result {
       case .success(let predictions):
         self.state = .populated(predictions)
