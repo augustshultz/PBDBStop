@@ -62,6 +62,7 @@
 		9E29519E21C32F3100081184 /* PBDB Stop */ = {
 			isa = PBXGroup;
 			children = (
+				9EA5348E227B07E80067A121 /* Settings.bundle */,
 				9E29519F21C32F3100081184 /* AppDelegate.swift */,
 				9E2951A921C32F3400081184 /* Assets.xcassets */,
 				9E2951AB21C32F3400081184 /* LaunchScreen.storyboard */,
@@ -69,7 +70,6 @@
 				9E584BFA21D5193100797548 /* View */,
 				9E2951B421C32FD500081184 /* NetworkController.swift */,
 				9E28650821DACFDB00892418 /* Prediction.swift */,
-				9EA5348E227B07E80067A121 /* Settings.bundle */,
 			);
 			path = "PBDB Stop";
 			sourceTree = "<group>";
