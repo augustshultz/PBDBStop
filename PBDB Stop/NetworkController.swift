@@ -15,7 +15,6 @@ class NetworkController {
   private let stopUrl = URL(string: "https://api.bongo.org/predictions/0264")
   
   func loadPredictions(_ completion: @escaping (Result<[Prediction], Error>) -> Void) {
-    
     guard let stopUrl = stopUrl else {
       completion(.failure(NetworkingError.urlInitializationError))
       return
@@ -42,4 +41,3 @@ class NetworkController {
     task.resume()
   }
 }
-
