@@ -31,8 +31,7 @@ class NetworkController {
       }
       
       do {
-        let predictions = try self.decoder.decode([Prediction].self, from: data)
-        
+        let predictions = try self.decoder.decode([Prediction].self, from: data)        
         let timeInterval = UserDefaults.standard.integer(forKey: "look_ahead")
         let filteredPredictions = predictions.filter { $0.minutes <= timeInterval }
         
