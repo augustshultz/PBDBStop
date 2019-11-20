@@ -4,10 +4,11 @@
 //
 
 import UIKit
+import BongoKit
 
 class TableViewController: UITableViewController {
   
-  let networkController = NetworkController()
+  let networkController = BongoNetworkController()
   
   @IBOutlet weak var loadingView: UIView?
   @IBOutlet weak var noUpcomingArrivals: UIView?
@@ -48,13 +49,14 @@ class TableViewController: UITableViewController {
   }
   
   func loadPredictions() {
-    networkController.loadPredictions() { [unowned self] (result) in
-      switch result {
-      case .success(let predictions):
-        self.state = .populated(predictions)
-      case .failure(let error):
-        self.state = .error(error.localizedDescription)
-      }
+//    let timeInterval = UserDefaults.standard.integer(forKey: "look_ahead")
+    networkController.fetchPredictions(forStopNumber: 264, inTimeInterval: 60) { (result) in
+        switch result {
+        case .success(let predictions):
+          self.state = .populated(predictions)
+        case .failure(let error):
+          self.state = .error(error.localizedDescription)
+        }
     }
   }
   

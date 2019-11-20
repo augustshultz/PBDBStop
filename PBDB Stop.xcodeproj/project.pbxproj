@@ -3,23 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9E28650921DACFDB00892418 /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E28650821DACFDB00892418 /* Prediction.swift */; };
+		97AF2D4B238570F700A0D4F5 /* BongoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 97AF2D4A238570F700A0D4F5 /* BongoKit */; };
 		9E2951A021C32F3100081184 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E29519F21C32F3100081184 /* AppDelegate.swift */; };
 		9E2951A221C32F3100081184 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2951A121C32F3100081184 /* TableViewController.swift */; };
 		9E2951A521C32F3100081184 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2951A321C32F3100081184 /* Main.storyboard */; };
 		9E2951AA21C32F3400081184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E2951A921C32F3400081184 /* Assets.xcassets */; };
 		9E2951AD21C32F3400081184 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E2951AB21C32F3400081184 /* LaunchScreen.storyboard */; };
-		9E2951B521C32FD500081184 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2951B421C32FD500081184 /* NetworkController.swift */; };
 		9E2951B921C3E89F00081184 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2951B821C3E89F00081184 /* State.swift */; };
 		9EA5348F227B07E80067A121 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9EA5348E227B07E80067A121 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9E28650821DACFDB00892418 /* Prediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
 		9E29519C21C32F3100081184 /* PBDB Stop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PBDB Stop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E29519F21C32F3100081184 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E2951A121C32F3100081184 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -27,7 +25,6 @@
 		9E2951A921C32F3400081184 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E2951AC21C32F3400081184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E2951AE21C32F3400081184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9E2951B421C32FD500081184 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		9E2951B821C3E89F00081184 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		9EA5348E227B07E80067A121 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -37,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97AF2D4B238570F700A0D4F5 /* BongoKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,8 +66,6 @@
 				9E2951AB21C32F3400081184 /* LaunchScreen.storyboard */,
 				9E2951AE21C32F3400081184 /* Info.plist */,
 				9E584BFA21D5193100797548 /* View */,
-				9E2951B421C32FD500081184 /* NetworkController.swift */,
-				9E28650821DACFDB00892418 /* Prediction.swift */,
 			);
 			path = "PBDB Stop";
 			sourceTree = "<group>";
@@ -100,6 +96,9 @@
 			dependencies = (
 			);
 			name = "PBDB Stop";
+			packageProductDependencies = (
+				97AF2D4A238570F700A0D4F5 /* BongoKit */,
+			);
 			productName = "PBDB Stop";
 			productReference = 9E29519C21C32F3100081184 /* PBDB Stop.app */;
 			productType = "com.apple.product-type.application";
@@ -129,6 +128,9 @@
 				Base,
 			);
 			mainGroup = 9E29519321C32F3100081184;
+			packageReferences = (
+				97AF2D49238570F700A0D4F5 /* XCRemoteSwiftPackageReference "BongoKit" */,
+			);
 			productRefGroup = 9E29519D21C32F3100081184 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -157,10 +159,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E2951B521C32FD500081184 /* NetworkController.swift in Sources */,
 				9E2951B921C3E89F00081184 /* State.swift in Sources */,
 				9E2951A221C32F3100081184 /* TableViewController.swift in Sources */,
-				9E28650921DACFDB00892418 /* Prediction.swift in Sources */,
 				9E2951A021C32F3100081184 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,6 +365,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		97AF2D49238570F700A0D4F5 /* XCRemoteSwiftPackageReference "BongoKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/augustshultz/BongoKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		97AF2D4A238570F700A0D4F5 /* BongoKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 97AF2D49238570F700A0D4F5 /* XCRemoteSwiftPackageReference "BongoKit" */;
+			productName = BongoKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9E29519421C32F3100081184 /* Project object */;
 }

@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BongoKit",
+        "repositoryURL": "https://github.com/augustshultz/BongoKit.git",
+        "state": {
+          "branch": null,
+          "revision": "3503e8fcb817cd97149307a95eb10fd6a6d4e83c",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
