@@ -14,6 +14,6 @@ This was the first time I use the Settings app to store settings for an app.
 
 I also used a struct with different states to make rendering the table view a breeze.
 
-## Screen shot
+## Screen Shot
 
-![](screenshots/ipod-touch.png)
+<img src="screenshots/ipod-touch.png" width="200px" />
