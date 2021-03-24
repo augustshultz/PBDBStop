@@ -49,7 +49,8 @@ class TableViewController: UITableViewController {
   }
   
   func loadPredictions() {
-    networkController.fetchPredictions(forStopNumber: 264, inTimeInterval: 60) { (result) in
+    let timeInterval = UserDefaults.standard.integer(forKey: "look_ahead")
+    networkController.fetchPredictions(forStopNumber: 264, inTimeInterval: timeInterval) { (result) in
         switch result {
         case .success(let predictions):
           self.state = .populated(predictions)
